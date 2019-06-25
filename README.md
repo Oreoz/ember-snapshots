@@ -7,8 +7,8 @@ A simple addon to manage changes in Ember Objects and Ember Data Models.
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v2.18 or above
-* Ember CLI v2.13 or above
+* Ember.js v3.0 or above
+* Ember CLI v3.0 or above
 * Node.js v8 or above
 
 
