@@ -48,6 +48,8 @@ module('Unit | Mixin | snapshotable model', function (hooks) {
     const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
     const child = store.createRecord('child', { id: 1 });
 
+    assert.equal(parent.child, null);
+
     parent.snapshot(['child']);
 
     assert.deepEqual(parent.snapshotDiff(), { child: [null, null] });
@@ -55,6 +57,10 @@ module('Unit | Mixin | snapshotable model', function (hooks) {
     parent.set('child', child);
 
     assert.equal(parent.child.id, 1);
+
+    parent.rollbackToSnapshot();
+
+    assert.equal(parent.child, null);
   });
 
   test('🧚‍♂️ it returns an empty object when no snapshot was taken', function (assert) {

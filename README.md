@@ -1,7 +1,7 @@
-ember-snapshots
+Ember Snapshots
 ==============================================================================
 
-[Short description of the addon.]
+A simple addon to manage changes in Ember Objects and Ember Data Models.
 
 
 Compatibility
@@ -23,8 +23,48 @@ ember install ember-snapshots
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+- `snapshot(props)`
 
+```js
+const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
+const child = store.createRecord('child', { id: 1 });
+
+parent.snapshot(['child']);
+```
+
+- `snapshotDiff()`
+
+```js
+const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
+const child = store.createRecord('child', { id: 1 });
+
+parent.snapshot(['child']);
+
+parent.set('child', child);
+
+/**
+ * oldValue: null
+ * newValue.id: 1
+ */
+const { child: [ oldValue, newValue ] } = parent.snapshotDiff();
+```
+
+- `rollbackToSnapshot()`
+
+```js
+const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
+const child = store.createRecord('child', { id: 1 });
+
+parent.get('child'); // returns null
+
+parent.snapshot(['child']);
+
+parent.set('child', child);
+parent.get('child'); // returns child
+
+parent.rollbackToSnapshot();
+parent.get('child'); // returns null
+```
 
 Contributing
 ------------------------------------------------------------------------------
