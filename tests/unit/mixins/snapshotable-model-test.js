@@ -15,7 +15,7 @@ const Child = Model.extend({
   name: attr({ defaultValue: '' }),
 });
 
-module('Unit | Mixin | snapshotable', function (hooks) {
+module('Unit | Mixin | snapshotable model', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function () {
@@ -23,7 +23,7 @@ module('Unit | Mixin | snapshotable', function (hooks) {
     this.owner.register('model:child', Child);
   });
 
-  test('🚀 it is possible to snapshot values and then get the difference', function (assert) {
+  test('🤴 it is possible to snapshot values and then get the difference', function (assert) {
     const store = this.owner.lookup('service:store');
 
     const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
@@ -39,10 +39,10 @@ module('Unit | Mixin | snapshotable', function (hooks) {
 
     assert.equal(oldValue, null);
     assert.equal(newValue.id, 1);
-    assert.equal(newValue instanceof DS.Model, 1);
+    assert.equal(newValue instanceof DS.Model, true);
   });
 
-  test('🛰 it is possible to rollback to the snapshot', function (assert) {
+  test('👸 it is possible to rollback to the snapshot', function (assert) {
     const store = this.owner.lookup('service:store');
 
     const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
@@ -57,7 +57,7 @@ module('Unit | Mixin | snapshotable', function (hooks) {
     assert.equal(parent.child.id, 1);
   });
 
-  test('🛸 it returns an empty object when no snapshot was taken', function (assert) {
+  test('🧚‍♂️ it returns an empty object when no snapshot was taken', function (assert) {
     const store = this.owner.lookup('service:store');
 
     const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
@@ -65,7 +65,7 @@ module('Unit | Mixin | snapshotable', function (hooks) {
     assert.deepEqual(parent.snapshotDiff(), {});
   });
 
-  test('🚁 it returns an empty snapshot and diff when snapshotting no properties', function (assert) {
+  test('🕺 it returns an empty snapshot and diff when snapshotting no properties', function (assert) {
     const store = this.owner.lookup('service:store');
 
     const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
@@ -74,7 +74,7 @@ module('Unit | Mixin | snapshotable', function (hooks) {
     assert.deepEqual(parent.snapshotDiff(), {});
   });
 
-  test('✈️ it does not affect the model when rolling back to an empty snapshot', function (assert) {
+  test('🧜‍♂️ it does not affect the model when rolling back to an empty snapshot', function (assert) {
     const store = this.owner.lookup('service:store');
 
     const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
@@ -85,7 +85,7 @@ module('Unit | Mixin | snapshotable', function (hooks) {
     assert.deepEqual(parent.name, 'Noah');
   });
 
-  test('🤷‍♂️ it reverts `hasMany` relationships correctly', function (assert) {
+  test('🧝‍♀️ it reverts `hasMany` relationships correctly', function (assert) {
     const store = this.owner.lookup('service:store');
 
     const child1 = store.createRecord('child');
