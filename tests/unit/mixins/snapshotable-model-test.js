@@ -42,7 +42,7 @@ module('Unit | Mixin | snapshotable model', function(hooks) {
     assert.equal(newValue instanceof DS.Model, true);
   });
 
-  test('👸 it is possible to rollback to the snapshot', function (assert) {
+  test('👸 it is possible to rollback to the snapshot', function(assert) {
     const store = this.owner.lookup('service:store');
 
     const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
