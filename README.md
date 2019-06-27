@@ -25,18 +25,22 @@ Usage
 
 - `snapshot(props)`
 
+Creates a snapshot with the passed-in properties.
+
 ```js
-const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
-const child = store.createRecord('child', { id: 1 });
+const parent = store.createRecord('parent', { name: 'Noah' });
+const child = store.createRecord('child');
 
 parent.snapshot(['child']);
 ```
 
 - `snapshotDiff()`
 
+Returns the difference between the object's current state and the latest snapshot.
+
 ```js
-const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
-const child = store.createRecord('child', { id: 1 });
+const parent = store.createRecord('parent', { name: 'Noah' });
+const child = store.createRecord('child');
 
 parent.snapshot(['child']);
 
@@ -51,9 +55,11 @@ const { child: [ oldValue, newValue ] } = parent.snapshotDiff();
 
 - `rollbackToSnapshot()`
 
+Rollsback the object to the latest snapshot.
+
 ```js
-const parent = store.createRecord('parent', { id: 1, name: 'Noah' });
-const child = store.createRecord('child', { id: 1 });
+const parent = store.createRecord('parent', { name: 'Noah' });
+const child = store.createRecord('child');
 
 parent.get('child'); // returns null
 
