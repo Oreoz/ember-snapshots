@@ -15,6 +15,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    'space-before-function-paren': ['error', 'never']
   },
   overrides: [
     // node files

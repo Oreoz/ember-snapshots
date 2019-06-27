@@ -5,7 +5,7 @@ import { setupTest } from 'ember-qunit';
 
 const Object = EmberObject.extend(Snapshotable, {});
 
-module('Unit | Mixin | snapshotable object', function (hooks) {
+module('Unit | Mixin | snapshotable object', function(hooks) {
   setupTest(hooks);
 
   test('🤷‍♂️ it does not modify the original object', function(assert) {
