@@ -5,9 +5,9 @@
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "https://github.com/Oreoz/ember-snapshots",
   "license": "MIT",
-  "author": "",
+  "author": "Jean-Philippe Roy",
   "directories": {
     "doc": "doc",
     "test": "tests"
